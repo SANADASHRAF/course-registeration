@@ -1,0 +1,58 @@
+﻿@model courseWebsite.Models.course
+
+@{
+    ViewBag.Title = "subscribe";
+    Layout = "~/Views/Shared/_mainlayout.cshtml";
+}
+
+<h2 class=" alert alert-success" style="text-align:center;font-size:xx-large"> You want subscribe? </h2>
+
+<div>
+
+    <hr />
+
+    <dl class="dl-horizontal" style="font-size:x-large">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.create_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.create_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.trainer_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.trainer_id)
+        </dd>
+
+
+
+    </dl>
+</div>
+<div>
+    <img src="~/attach/@Model.img" width="400" height="300" style="margin-left:700px;margin-top:-200px" />
+</div>
+<div style="text-align:center;padding-top:30px" >
+@Html.ActionLink("Subscribe", "couressubscribe", "admin",new { course_id =Model.id}, new { @class= "btn btn-primary" })
+    </div>>

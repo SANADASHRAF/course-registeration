@@ -1,0 +1,65 @@
+﻿@model courseWebsite.Models.traineee
+@{
+    ViewBag.Title = "signup";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<head>
+    <link href="~/Content/css of sign up.css" rel="stylesheet" />
+    </head>
+    <body>
+
+        <div class="signupFrm">
+          
+            <form method="post" enctype="multipart/form-data" class="form">
+                
+
+                <h1 class="title">Sign up</h1>
+
+                <div class="inputContainer">
+                    @Html.TextBoxFor(n => n.name, new { @class = "input", placeholder = "a" })
+                    @Html.LabelFor(n => n.name, new { @class = "label" })
+                    @Html.ValidationMessageFor(n => n.name, "", new { @clas = "text-danger" })
+                </div>
+                <div class="inputContainer">
+                    @Html.TextBoxFor(n => n.email, new { @class = "input", placeholder = "a" })
+                    @Html.LabelFor(n => n.email, new { @class = "label" })
+                    @Html.ValidationMessageFor(n => n.email, "", new { @clas = "text-danger" })
+                </div>
+                <div class="inputContainer">
+                    @Html.TextBoxFor(n => n.password, new { @class = "input", placeholder = "a" })
+                    @Html.LabelFor(n => n.password, new { @class = "label" })
+                    @Html.ValidationMessageFor(n => n.password, "", new { @clas = "text-danger" })
+                </div>
+
+                <div class="inputContainer">
+                    @Html.TextBoxFor(n => n.Confirm_Password, new { @class = "input", placeholder = "a" })
+                    @Html.LabelFor(n => n.Confirm_Password, new { @class = "label" })
+                    @Html.ValidationMessageFor(n => n.Confirm_Password, "", new { @clas = "text-danger" })
+                </div>
+
+                <div class="inputContainer">
+
+                    @Html.LabelFor(n => n.img, new { @class = "label" })
+                    <input type="file" name="imag" class="input" />
+                    @Html.ValidationMessageFor(n => n.img, "", new { @clas = "text-danger" })
+                </div>
+
+
+                <div style="text-align:center"> <input type="submit" class="submitBtn" value="Sign Up"></div>
+
+                <div class="small" style="text-align:center"> @Html.ActionLink("Have an account? Sign In!", "login", "admin")</div>
+
+                @if (ViewBag.massege4 != null)
+                {
+                <div class="alert alert-dark" style="text-align:center;background-color:indianred">
+                    @ViewBag.massege4
+                </div>
+                }
+
+            </form>
+           
+        </div>
+    </body>
+    </html>

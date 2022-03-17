@@ -1,0 +1,38 @@
+﻿@model courseWebsite.Models.traineee
+
+@{
+    ViewBag.Title = "profile";
+    Layout = "~/Views/Shared/_mainlayout.cshtml";
+}
+
+
+
+
+<dev style="background-color:aqua">
+    <h1 style="text-align:center;font-weight:bolder;color:cadetblue">Wellcom @Model.name</h1>
+    <br />
+    <br />
+    <table width="110%" style="font-size:20px ;font-weight:bold">
+        <tr>
+            <td>
+                <dev style="color:darkcyan">UserName : </dev> @Model.name
+                <br /><br />
+                <dev style="color:darkcyan">Id : </dev>@Model.id
+                <br /><br />
+                <dev style="color:darkcyan">Email : </dev>@Model.email
+                <br /><br />
+                <dev style="color:darkcyan">Password : </dev>@Model.password
+                <br /><br />
+                <dev style="color:darkcyan"> YOUR course: </dev>@Html.ActionLink(" Show Your course", "yourcourse", "trainee", new { idtrainee = Model.id }, new { @class="btn btn-primary"})
+            </td>
+            <td>
+                <img src="~/attach/userimg/@Model.img" width="400" height="200" />
+            </td>
+
+        </tr>
+    </table>
+
+    
+</dev>
+
+

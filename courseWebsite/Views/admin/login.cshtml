@@ -1,0 +1,67 @@
+﻿@model courseWebsite.Models.admin
+@{
+    Layout = null;
+}
+
+
+    <head>  
+        <link href="~/css/styles.css" rel="stylesheet" />
+         </head>
+    <body class="bg-primary">
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-5">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-body">
+
+                                       @*using rasor to build form instade of form*@
+                                    @using (Html.BeginForm("login", "admin", FormMethod.Post))
+                                          {
+                                              
+                                        <div class="form-floating mb-3">
+                                            @Html.TextBoxFor(n => n.email, new { @class = "form-control", placeholder = "name@example.com" })
+                                            @Html.LabelFor(n => n.email)
+                                            <div style="color:red">
+                                                @Html.ValidationMessageFor(n => n.password, null, new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                            <div class="form-floating mb-3">
+                                                @Html.TextBoxFor(n => n.password, new { @class = "form-control", placeholder = "name@example.com" })
+                                                @Html.LabelFor(n => n.password)
+                                              <div style="color:red">
+                                                @Html.ValidationMessageFor(n => n.password, null, new { @class = "text-danger" })
+                                               </div>
+
+                                            </div>
+
+                                            <div class="form-floating mb-3 " style="color:red;">
+                                                @ViewBag.status
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                                <a class="small" href="password.html">Forgot Password?</a>
+
+                                                <input type="submit" class="btn btn-primary" name="Login" />
+
+                                            </div>
+                                            }
+
+                                        </div>
+                                    <div class="card-footer text-center py-3">
+                                       
+                                        <div class="small"> @Html.ActionLink("Need an account? Sign up!", "signup", "admin")</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                </div>
+            </div>
+
+    </body>
+  

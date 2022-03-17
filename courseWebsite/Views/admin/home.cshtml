@@ -1,0 +1,66 @@
+﻿@model List<courseWebsite.Models.course>
+@{
+    ViewBag.Title = "home";
+    Layout = "~/Views/Shared/_mainlayout.cshtml";
+}
+
+
+<section class="news">
+    <div class="container">
+        <div class="news-details">
+            <h1 style="text-align:center;font-size:40px;">Wellcom in our educational platform</h1>
+            <div class="news-card news-card-pb-25">
+                <div class="row">
+
+                @foreach (var x in Model)
+                {
+                    <div class="col-md-4 col-sm-6">
+                        <div class="single-news-box">
+
+
+                            <div class="news-box-bg">
+                                <img src="~/attach/ @x.img" alt="image">
+                            </div>
+
+
+                            <div class="news-box-inner">
+
+                                <h2>
+                                    @x.name
+                                </h2>
+                                
+                                <h3>
+
+                                    @x.description
+
+                                </h3>
+                                <h4>
+
+                                    The instractor ID:@x.trainer_id
+
+                                </h4>
+                                <h>
+                                    Bublished in @x.create_date
+                                </h>
+
+
+                            </div>
+                            @if (Session["user"] != null )
+                            {
+                            <div style="text-align:center" >
+                                @Html.ActionLink("Subscribe to the COURSE", "subscribe", "admin", new { course_id = x.id }, new { @class = "btn btn-primary" })
+                            </div>
+                            }
+                            </div>
+
+                    </div>
+
+                }
+                </div>
+                
+
+        </div><!--/news-details-->
+    </div><!--/.container-->
+
+</section><!--/news-->
+<!--news end-->

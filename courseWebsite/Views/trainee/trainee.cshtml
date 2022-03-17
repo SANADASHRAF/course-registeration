@@ -1,0 +1,46 @@
+﻿@model IEnumerable<courseWebsite.Models.traineee_course>
+
+@{
+    ViewBag.Title = "trainee";
+    Layout = "~/Views/Shared/_mainlayout.cshtml";
+}
+
+<h2 class="alert alert-success" style="text-align:center;font-size:xx-large">trainee</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.traineee.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.traineee.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.traineee.creation_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.traineee.password)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.traineee.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.traineee.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.traineee.creation_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.traineee.password)
+        </td>
+
+    </tr>
+}
+
+</table>

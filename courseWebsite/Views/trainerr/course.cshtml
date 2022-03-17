@@ -1,0 +1,62 @@
+﻿@model IEnumerable<courseWebsite.Models.course>
+
+@{
+    ViewBag.Title = "course";
+    Layout = "~/Views/Shared/_mainlayout.cshtml";
+}
+
+<h2 style="text-align:center;font-weight:bolder;">Trainer course</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.create_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category_id)
+        </th>
+
+        <th></th>
+    </tr>
+
+
+
+
+    @if (Model!= null && Model.Count()>0)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.create_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.category_id)
+                </td>
+
+
+            </tr>
+        }
+    }
+    else
+    {
+            <div class="alert alert-danger" style="text-align:center;">
+               
+                    "There is no course asssign for  Tis trainer"
+                
+            </div>
+    }
+</table>

@@ -1,0 +1,44 @@
+﻿@model courseWebsite.Models.category
+
+@{
+    ViewBag.Title = "create";
+    Layout = "~/Views/Shared/_mainlayout.cshtml";
+}
+
+<h2>create</h2>
+
+@using (Html.BeginForm("create","admin",FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>category</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+       
+        <div class="form-group">
+            @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.parent_id,  new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("parent_id", (IEnumerable<SelectListItem>)ViewBag.masge, string.Empty, new { @class = "form-control" })
+               
+                @Html.ValidationMessageFor(model => model.parent_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10" style=" text-align:center">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+

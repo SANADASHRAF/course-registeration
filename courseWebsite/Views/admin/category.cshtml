@@ -1,0 +1,53 @@
+﻿@model IEnumerable<courseWebsite.Models.category>
+
+@{
+    ViewBag.Title = "category";
+    Layout = "~/Views/Shared/_mainlayout.cshtml";
+}
+<html>
+<body>
+    <h2 style="text-align:center;font-weight:bolder">category</h2>
+
+    <p style="text-align:center;padding-bottom:10px">
+        @Html.ActionLink("Add new category", "create", "admin", new { @class = "btn btn-primary" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.parent_id)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.parent_id)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary" }) 
+                   
+                    @Html.ActionLink("Delete", "delete", new { id = item.id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+
+    </table>
+  
+
+</body>
+</html>

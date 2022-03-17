@@ -1,0 +1,57 @@
+﻿@model IEnumerable<courseWebsite.Models.traineee>
+
+@{
+    ViewBag.Title = "traineee";
+    Layout = "~/Views/Shared/_mainlayout.cshtml";
+}
+
+<h2 style="text-align:center;font-size:xx-large;padding-bottom:20px">traineee</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.creation_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.img)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+      
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.creation_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.img)
+        </td>
+       <td>
+           @Html.ActionLink("Delete", "deletetraine", "admin", new { id = item.id }, new { @class= "btn btn-danger" })
+       </td>
+    </tr>
+}
+
+</table>
